@@ -19,6 +19,21 @@ class StatsViewController: UIViewController {
         completed.text = "Completed"
         completed.font = UIFont.boldSystemFont(ofSize: 32)
         self.view.addSubview(completed)
+        
+        //find completed number
+        var count : Int
+        count = 0;
+        for task in Shared.list {
+            if (task.completed!) {
+                count += 1;
+            }
+        }
+        var number : UILabel = UILabel()
+        number = UILabel(frame: CGRect(x: 0, y: 120, width: UIScreen.main.bounds.size.width, height: 40))
+        number.textAlignment = .center;
+        number.text = String(count)
+        number.font = UIFont.boldSystemFont(ofSize: 32)
+        self.view.addSubview(number)
         // Do any additional setup after loading the view.
     }
 
